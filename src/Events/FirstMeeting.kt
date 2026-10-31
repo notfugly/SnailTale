@@ -1,3 +1,9 @@
+package Events
+
+import ConditionalEvent
+import DialogueChoice
+import DialogueNode
+
 val friendlyEnding = DialogueNode(
     text = "Она улыбается: «Спасибо, что выслушал».",
     choices = emptyList()

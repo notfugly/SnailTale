@@ -73,6 +73,8 @@ class FixedEvent(
     private val readinessChange: Int, description: String
 ) : GameEvent(title, description) {
     override fun apply(player: PlayerState) {
+        println(title)
+        println(description)
         player.changeResources(
             attitudeToPlayerChange,
             budgetChange,

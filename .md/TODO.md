@@ -43,7 +43,7 @@
 
 ---
 
-# TODO проекта Quiet Elegy
+# TODO проекта SnailTale
 
 ## Текущее состояние
 
