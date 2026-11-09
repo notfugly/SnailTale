@@ -14,10 +14,6 @@ class Day(
         REST(3, "Отдохнуть: +3 энергии")
     }
 
-    /**
-     * Проводит день.
-     * Возвращает false, если ввод был завершён до выбора действия.
-     */
     fun play(player: PlayerState): Boolean {
         println("\nДень $numberOfDay")
         receiveMoney(player)
@@ -61,7 +57,7 @@ class Day(
         val event = events.randomOrNull(random)
         if (event != null) {
             println("\nСобытие дня:")
-            event.apply(player)
+            event.startEvent(player)
         }
 
         return true

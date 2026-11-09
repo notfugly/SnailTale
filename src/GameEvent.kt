@@ -1,30 +1,42 @@
-abstract class GameEvent(
+/**
+ * Класс события в игре
+ */
+class GameEvent(
     val title: String,
-    val description: String
-    ) {
-    abstract fun apply(player: PlayerState)
-}
-
-
-class DialogueNode(
-    val text: String,
-    val choices: List<DialogueChoice>
-)
-
-class DialogueChoice(
-    val text: String,
-    val condition: (PlayerState) -> Boolean = { true },
-    val effect: (PlayerState) -> Unit = {},
-    val next: DialogueNode? = null
-)
-
-class ConditionalEvent(
-    title: String,
-    description: String,
+    val description: String,
     private val startNode: DialogueNode
-) : GameEvent(title, description) {
+    ) {
 
-    override fun apply(player: PlayerState) {
+    /**
+     * Единичный выбор
+     *
+     * @property text Текст выбора
+     * @property condition Условие для выбора
+     * @property effect Эффект для игрока
+     * @property next Следующий узел в диалоге
+     */
+    class DialogueChoice(
+        val text: String = "ExampleTitle",
+        val condition: (PlayerState) -> Boolean = { true },
+        val effect: (PlayerState) -> Unit = {},
+        val next: DialogueNode? = null
+    )
+
+    /**
+     * Узел дерева выборов
+     *
+     * @property text Текст выбора
+     * @property choices Варианты выбора
+     */
+    class DialogueNode(
+        val text: String,
+        val choices: List<DialogueChoice>
+    )
+
+    /**
+     * Старт ивента
+     */
+    fun startEvent(player: PlayerState) {
         println(title)
         println(description)
 
@@ -36,7 +48,7 @@ class ConditionalEvent(
 
             val availableChoices = node.choices.filter { it.condition(player) }
 
-            // Узел без доступных ответов завершает диалог.
+            // Узел без доступных ответов завершает диалог
             if (availableChoices.isEmpty()) break
 
             availableChoices.forEachIndexed { index, choice ->
@@ -61,25 +73,5 @@ class ConditionalEvent(
             choice.effect(player)
             currentNode = choice.next
         }
-    }
-}
-
-
-class FixedEvent(
-    title: String,
-    private val attitudeToPlayerChange: Int,
-    private val budgetChange: Int,
-    private val energyChange: Int,
-    private val readinessChange: Int, description: String
-) : GameEvent(title, description) {
-    override fun apply(player: PlayerState) {
-        println(title)
-        println(description)
-        player.changeResources(
-            attitudeToPlayerChange,
-            budgetChange,
-            energyChange,
-            readinessChange
-        )
     }
 }
