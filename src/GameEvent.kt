@@ -1,5 +1,8 @@
 /**
  * Класс события в игре
+ * @property title Заголовок ивента
+ * @property description Описание ивента
+ * @property startNode Изначальный узел диалога
  */
 class GameEvent(
     val title: String,
@@ -8,7 +11,7 @@ class GameEvent(
     ) {
 
     /**
-     * Единичный выбор
+     * Единичный выбор в диалоге (узел диалога)
      *
      * @property text Текст выбора
      * @property condition Условие для выбора
@@ -23,14 +26,14 @@ class GameEvent(
     )
 
     /**
-     * Узел дерева выборов
+     * Список выборов
      *
-     * @property text Текст выбора
+     * @property text Краткое описание выборов
      * @property choices Варианты выбора
      */
     class DialogueNode(
         val text: String,
-        val choices: List<DialogueChoice>
+        val choices: List<DialogueChoice>?
     )
 
     /**

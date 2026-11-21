@@ -1,3 +1,10 @@
+/**
+ * Объект записывающий метрики игрока
+ * @param attitudeToPlayer Отношение к игроку
+ * @param budget Бюджет игрока
+ * @param energy Энергия игрока
+ * @param readiness Готовность игрока
+ */
 data class PlayerStateSnapshot(
     val attitudeToPlayer: Int,
     val budget: Int,
@@ -16,6 +23,12 @@ data class PlayerStateSnapshot(
     }
 }
 
+/**
+ * Запись изменения метрик за день
+ * @param curDay Текущий день
+ * @param startOfDayPlayerState Снапшот игрока в начале дня
+ * @param endOfDayPlayerState Снапшот игрока в конце дня
+ */
 class DayRecord(
     val curDay: Day,
     val startOfDayPlayerState: PlayerStateSnapshot,
@@ -37,6 +50,9 @@ class DayRecord(
         get() = endOfDayPlayerState.readiness -
                 startOfDayPlayerState.readiness
 
+    /**
+     * Вывод изменения метрик
+     */
     fun logResults() {
         fun formatChange(change: Int): String = if (change > 0) "+$change" else change.toString()
 
