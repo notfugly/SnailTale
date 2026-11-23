@@ -9,6 +9,9 @@ class Day(
      * Запуск дня
      * @param player Состояние игрока
      */
-    fun play(player: PlayerState) {}
+    fun play(player: PlayerState): Boolean {
+        event.startEvent(player)
+        return true
+    }
 
 }

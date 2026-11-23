@@ -18,7 +18,7 @@ class PlayerState {
         private set
 
     /**
-     * Сеттер ресурсов
+     * Сеттер величин
      *
      * Положительное значение параметра увеличивает соответствующий показатель,
      * отрицательное — уменьшает. Например, [budgetChange] меняет
@@ -38,5 +38,25 @@ class PlayerState {
         budget += budgetChange
         energy += energyChange
         readiness += readinessChange
+    }
+
+    /**
+     * Вывод текущей статистики
+     * @param playerState Состояние игрока
+     */
+    fun printPlayersInDayResources(playerState: PlayerState) {
+        println("-- Текущие ресурсы --")
+        println("Энергия: $energy")
+        println("Бюджет: $budget")
+    }
+
+    /**
+     * Вывод итоговой статистики
+     * @param playerState Состояние игрока
+     */
+    fun printFinalStatistics(playerState: PlayerState) {
+        println("\n-- Итоговые ресурсы --")
+        println("Готовность: $readiness")
+        println("Отношения к игроку: $attitudeToPlayer\n")
     }
 }

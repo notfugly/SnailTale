@@ -1,6 +1,3 @@
-import Events.*
-import kotlin.collections.emptyList
-
 /**
  * Главный класс игры
  */
@@ -35,11 +32,18 @@ class Game {
             1 -> Event1
             2 -> Event2
             3 -> Event3
-            4 -> Event4
-            5 -> Event5
-            6 -> Event6
-            7 -> Event7
-            else -> throw IndexOutOfBoundsException()
+//            4 -> Event4
+//            5 -> Event5
+//            6 -> Event6
+//            7 -> Event7
+            else -> GameEvent(
+                title = "TODO()",
+                description = "TODO()",
+                startNode = GameEvent.DialogueNode(
+                    text = "TODO()",
+                    choices = emptyList()
+                )
+            )
         }
         val curDay = Day(i, event)
 

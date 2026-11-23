@@ -1,6 +1,3 @@
-package Events
-
-import GameEvent
 import GameEvent.DialogueChoice
 import GameEvent.DialogueNode
 
@@ -130,5 +127,4 @@ val Event3: GameEvent = GameEvent(
             )
         )
     ),
-
 )

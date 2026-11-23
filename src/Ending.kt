@@ -6,11 +6,15 @@ class Ending(
     }
 
     fun printEnding(playerState: PlayerState) {
-        TODO()
+        if (playerState.readiness >= 100) {
+            println("Ураа! Снимай штаны")
+        } else {
+            println("Ты медик. Я тебя ненавижу")
+        }
     }
 
     fun printStatistics(playerState: PlayerState) {
-        TODO()
+        playerState.printFinalStatistics(playerState)
     }
 
 }

@@ -49,12 +49,12 @@ class GameEvent(
             val node = currentNode
             println("\n${node.text}")
 
-            val availableChoices = node.choices.filter { it.condition(player) }
+            val availableChoices = node.choices?.filter { it.condition(player) }
 
             // Узел без доступных ответов завершает диалог
-            if (availableChoices.isEmpty()) break
+            if (availableChoices?.isEmpty() == true) break
 
-            availableChoices.forEachIndexed { index, choice ->
+            availableChoices?.forEachIndexed { index, choice ->
                 println("${index + 1}. ${choice.text}")
             }
 
@@ -65,7 +65,7 @@ class GameEvent(
                 val input = readlnOrNull() ?: return
                 val index = input.toIntOrNull()?.minus(1)
 
-                if (index != null && index in availableChoices.indices) {
+                if (index != null && availableChoices?.indices?.contains(index) == true) {
                     choice = availableChoices[index]
                     break
                 }
