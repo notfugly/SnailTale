@@ -41,21 +41,13 @@ class PlayerState {
     }
 
     /**
-     * Вывод текущей статистики
-     * @param playerState Состояние игрока
-     */
-    fun printPlayersInDayResources(playerState: PlayerState) {
-        println("-- Текущие ресурсы --")
-        println("Энергия: $energy")
-        println("Бюджет: $budget")
-    }
-
-    /**
      * Вывод итоговой статистики
      * @param playerState Состояние игрока
      */
     fun printFinalStatistics(playerState: PlayerState) {
         println("\n-- Итоговые ресурсы --")
+        println("Энергия: $energy")
+        println("Бюджет: $budget")
         println("Готовность: $readiness")
         println("Отношения к игроку: $attitudeToPlayer\n")
     }

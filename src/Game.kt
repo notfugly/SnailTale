@@ -53,7 +53,7 @@ class Game {
 
         val record = DayRecord(curDay, startState, endState)
         history.add(record)
-        record.logResults()
+        record.printPlayersInDayResources()
         return completed
     }
 }

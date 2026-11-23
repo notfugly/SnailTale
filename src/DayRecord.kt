@@ -51,15 +51,14 @@ class DayRecord(
                 startOfDayPlayerState.readiness
 
     /**
-     * Вывод изменения метрик
+     * Вывод текущей статистики
      */
-    fun logResults() {
+    fun printPlayersInDayResources() {
         fun formatChange(change: Int): String = if (change > 0) "+$change" else change.toString()
 
         println("\n--- Итоги дня ${curDay.numberOfDay} ---")
-        println("Отношения: ${startOfDayPlayerState.attitudeToPlayer} → ${endOfDayPlayerState.attitudeToPlayer} (${formatChange(attitudeChange)})")
         println("Бюджет: ${startOfDayPlayerState.budget} → ${endOfDayPlayerState.budget} (${formatChange(budgetChange)})")
         println("Энергия: ${startOfDayPlayerState.energy} → ${endOfDayPlayerState.energy} (${formatChange(energyChange)})")
-        println("Готовность: ${startOfDayPlayerState.readiness} → ${endOfDayPlayerState.readiness} (${formatChange(readinessChange)})")
+        println("\n")
     }
 }
