@@ -128,3 +128,51 @@ val Event3: GameEvent = GameEvent(
         )
     ),
 )
+val Event4: GameEvent = GameEvent(
+    title = "Сегодня концерт '3 дня вождя'",
+    description ="""
+        Вы хотите послушать самые лучшие треки, ваши действия?
+    """.trimIndent(),
+    startNode = DialogueNode(
+        text = "На какой трек пойдем?",
+        choices = listOf(
+            DialogueChoice(
+                text = "Отсосать(slowed-reverb)",
+                effect = { player ->
+                    player.changeResources(
+                        attitudeToPlayerChange = 3,
+                        energyChange = 1
+                    )
+                },
+                next = DialogueNode(
+                    text = "Слезы от счастья текут по щекам,как жидкое пламя его по устам",
+                    choices = emptyList()
+                )
+            ),
+            DialogueChoice(
+                text = "Отсосать",
+                effect = { player ->
+                    player.changeResources(
+                        attitudeToPlayerChange = 2,
+                    )
+                },
+                next = DialogueNode(
+                    text = "банально,но нормально",
+                    choices = emptyList()
+                )
+            ),
+            DialogueChoice(
+                text = "Отсосать(Speed-up)",
+                effect = { player ->
+                    player.changeResources(
+                        attitudeToPlayerChange = 1,
+                    )
+                },
+                next = DialogueNode(
+                    text = "херня,но 3 дня дождя всё равно топ",
+                    choices = emptyList()
+                )
+            )
+        )
+    ),
+)

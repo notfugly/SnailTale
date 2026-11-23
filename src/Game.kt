@@ -32,7 +32,7 @@ class Game {
             1 -> Event1
             2 -> Event2
             3 -> Event3
-//            4 -> Event4
+            4 -> Event4
 //            5 -> Event5
 //            6 -> Event6
 //            7 -> Event7

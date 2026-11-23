@@ -79,6 +79,3 @@ class GameEvent(
     }
 }
 
-class ConditionalGameEvent() : GameEvent() {
-
-}
