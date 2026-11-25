@@ -33,7 +33,8 @@ open class GameEvent(
      */
     class DialogueNode(
         val text: String,
-        val choices: List<DialogueChoice>?
+        val choices: List<DialogueChoice>?,
+        val onEnter: (PlayerState) -> Unit = {}
     )
 
     /**
@@ -90,7 +91,8 @@ class ConditionalGameEvent(
 class FixedGameEvent(
     title: String,
     description: String,
-    startNode: DialogueNode
+    startNode: DialogueNode,
+    val chance: Int,
+    val onDay: List<Int>
 ) : GameEvent(title, description, startNode) {
-
 }

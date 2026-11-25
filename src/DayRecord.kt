@@ -1,29 +1,4 @@
 /**
- * Объект записывающий метрики игрока
- * @param attitudeToPlayer Отношение к игроку
- * @param budget Бюджет игрока
- * @param energy Энергия игрока
- * @param readiness Готовность игрока
- */
-data class PlayerStateSnapshot(
-    val attitudeToPlayer: Int,
-    val budget: Int,
-    val energy: Int,
-    val readiness: Int
-) {
-    companion object {
-        fun from(player: PlayerState): PlayerStateSnapshot {
-            return PlayerStateSnapshot(
-                attitudeToPlayer = player.attitudeToPlayer,
-                budget = player.budget,
-                energy = player.energy,
-                readiness = player.readiness
-            )
-        }
-    }
-}
-
-/**
  * Запись изменения метрик за день
  * @param curDay Текущий день
  * @param startOfDayPlayerState Снапшот игрока в начале дня

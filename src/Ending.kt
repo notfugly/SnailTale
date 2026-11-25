@@ -1,6 +1,10 @@
-class Ending(
-    val playerState: PlayerState
-) {
+/**
+ * TODO()
+ */
+class Ending(val playerState: PlayerState) {
+    /**
+     * TODO()
+     */
     fun finalEnding(playerState: PlayerState) {
 
     }
@@ -16,5 +20,4 @@ class Ending(
     fun printStatistics(playerState: PlayerState) {
         playerState.printFinalStatistics(playerState)
     }
-
 }

@@ -14,7 +14,7 @@ val Event1: GameEvent = GameEvent(
                         attitudeToPlayerChange = 5,
                         budgetChange = 0,
                         energyChange = -1,
-                        readinessChange = 0
+                        readinessChange = 5
                     )
                 },
                 next = DialogueNode(
@@ -30,7 +30,7 @@ val Event1: GameEvent = GameEvent(
                         attitudeToPlayerChange = 10,
                         budgetChange = -10,
                         energyChange = 0,
-                        readinessChange = 0
+                        readinessChange = 5
                     )
                 },
                 next = DialogueNode(
@@ -38,7 +38,12 @@ val Event1: GameEvent = GameEvent(
                     choices = emptyList()
                 )
             ),
-            DialogueChoice(text = "Пройти мимо")
+            DialogueChoice(
+                text = "Пройти мимо",
+                effect = { player -> player.changeResources(
+                    energyChange = 5
+                )}
+            )
         )
     )
 )
@@ -144,7 +149,7 @@ val Event3: GameEvent = GameEvent(
 )
 val Event4: GameEvent = GameEvent(
     title = "Сегодня концерт '3 дня вождя'",
-    description ="""
+    description = """
         Вам пишет та самая знакомая:
     """.trimIndent(),
     startNode = DialogueNode(
@@ -324,7 +329,9 @@ val Event7: GameEvent = GameEvent(
                 )
             ),
             DialogueChoice(
-                text = "«С тобой? Фу, ты не стоишь и капли моего внимания,меня раздражают твои глаза,твой голос и ты в принципе,если бы был выбор между тобой и тем,чтобы запереться на год в башне,то я явно бы не выбрал тебя»",
+                text = "«С тобой? Фу, ты не стоишь и капли моего внимания,меня раздражают твои глаза, твой голос\n" +
+                        "и ты в принципе,если бы был выбор между тобой и тем,чтобы запереться на год в башне,\n" +
+                        "то я явно бы не выбрал тебя»",
                 effect = { player ->
                     player.changeResources(
                         attitudeToPlayerChange = -100,

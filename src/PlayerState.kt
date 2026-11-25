@@ -8,13 +8,17 @@
  * @property readiness Готовность игрока
  */
 class PlayerState {
-    var attitudeToPlayer: Int = 0 // 0..100
+    /** Диапазон: 0..100 */
+    var attitudeToPlayer: Int = 0
         private set
-    var budget: Int = 100 // 100..0
+    /** Диапазон: 100..0 */
+    var budget: Int = 100
         private set
-    var energy: Int = 10 // 10..0
+    /** Диапазон: 10..0 */
+    var energy: Int = 10
         private set
-    var readiness: Int = 0 // 0..100
+    /** Диапазон: 0..100 */
+    var readiness: Int = 0
         private set
 
     /**

@@ -1,3 +1,5 @@
+import java.util.Random
+
 /**
  * Главный класс игры
  */
@@ -28,7 +30,7 @@ class Game {
      * @param i Текущий день
      */
     fun PlayDay(i: Int): Boolean {
-        val event: GameEvent = when (i) {
+        val mainEvent: GameEvent = when (i) {
             1 -> Event1
             2 -> Event2
             3 -> Event3
@@ -36,16 +38,21 @@ class Game {
             5 -> Event5
             6 -> Event6
             7 -> Event7
-            else -> GameEvent(
-                title = "TODO()",
-                description = "TODO()",
-                startNode = GameEvent.DialogueNode(
-                    text = "TODO()",
-                    choices = emptyList()
-                )
-            )
+
+            else -> throw IndexOutOfBoundsException()
         }
-        val curDay = Day(i, event)
+
+        val otherEvents: List<GameEvent> =
+            if (
+                i in TransferFromParents.onDay &&
+                kotlin.random.Random.nextInt(100) < TransferFromParents.chance
+            ) {
+                listOf(TransferFromParents)
+            } else {
+                emptyList()
+            }
+
+        val curDay = Day(i, listOf(mainEvent) + otherEvents)
 
         val startState = PlayerStateSnapshot.from(player)
         val completed = curDay.play(player)
