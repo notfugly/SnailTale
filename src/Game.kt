@@ -33,9 +33,9 @@ class Game {
             2 -> Event2
             3 -> Event3
             4 -> Event4
-//            5 -> Event5
-//            6 -> Event6
-//            7 -> Event7
+            5 -> Event5
+            6 -> Event6
+            7 -> Event7
             else -> GameEvent(
                 title = "TODO()",
                 description = "TODO()",
