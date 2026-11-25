@@ -4,7 +4,7 @@
  * @property description Описание ивента
  * @property startNode Изначальный узел диалога
  */
-class GameEvent(
+open class GameEvent(
     val title: String,
     val description: String,
     private val startNode: DialogueNode
@@ -79,3 +79,18 @@ class GameEvent(
     }
 }
 
+class ConditionalGameEvent(
+    title: String,
+    description: String,
+    startNode: DialogueNode
+) : GameEvent(title, description, startNode) {
+
+}
+
+class FixedGameEvent(
+    title: String,
+    description: String,
+    startNode: DialogueNode
+) : GameEvent(title, description, startNode) {
+
+}
